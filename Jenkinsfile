@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                echo 'Hello world'
+                chmod +x 'hello-world.sh'
+                sh 'hello-world.sh'
             }
         }
         stage('Test') { 
