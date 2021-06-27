@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                chmod +x 'hello-world.sh'
+                sh 'chmod +x hello-world.sh'
                 sh 'hello-world.sh'
             }
         }
