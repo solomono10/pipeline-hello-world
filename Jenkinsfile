@@ -20,8 +20,8 @@ pipeline {
               }
             }
             steps {
-                echo env.BUILD_ID
-                echo currentBuild.result
+                echo '${env.BUILD_ID}'
+                echo '${currentBuild.result}'
             }
         }
     }
