@@ -26,6 +26,7 @@ pipeline {
                 echo "${currentBuild.result}"
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 sh("echo ${STATEMENT}")
+                sh 'ls -la'
             }
         }
     }
