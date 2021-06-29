@@ -20,7 +20,7 @@ pipeline {
               }
             }
             steps {
-                echo $currentBuild.result
+                echo currentBuild.result
             }
         }
     }
