@@ -3,11 +3,11 @@ pipeline {
     agent any
     environment {
         EXAMPLE_KEY = credentials('example-credentials-id') // Secret value is 'sec%ret'
-        EXAMPLE_KEY2 = credentials('example2-credentials-id')
+        // EXAMPLE_KEY2 = credentials('example2-credentials-id')
     }
     parameters {
-        string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say')
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+        string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say')
     }
     stages {
         stage('Build') { 
