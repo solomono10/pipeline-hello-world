@@ -2,7 +2,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'STATEMENT', defaultValue: 'hello', description: 'What should I say')
+        string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say')
     }
     stages {
         stage('Build') { 
@@ -25,6 +25,7 @@ pipeline {
             steps {
                 echo "${currentBuild.result}"
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                sh("echo ${STATEMENT}")
             }
         }
     }
