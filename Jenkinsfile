@@ -13,11 +13,6 @@ pipeline {
                 echo 'Hello man'
             }
         }
-        stage('Deploy') { 
-            steps {
-                echo 'Hello woman' 
-            }
-        }
         stage('Deploy') {
             when {
               expression {
