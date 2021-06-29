@@ -2,10 +2,11 @@
 pipeline {
     agent any
     environment {
-        EXAMPLE_KEY = credentials('example-credentials-id') // Secret value is 'sec%ret'
+        // EXAMPLE_KEY = credentials('example-credentials-id') // Secret value is 'sec%ret'
     }
     parameters {
         string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say')
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
     }
     stages {
         stage('Build') { 
@@ -33,8 +34,17 @@ pipeline {
                 sh('echo ${STATEMENT}')
                 sh 'ls -la'
                 sh 'echo $EXAMPLE_KEY'
-                sh "echo $EXAMPLE_KEY"
+                sh "echo $EXAMPLE_KEY"  // using Groovy String interpolation, which is insecure
+                echo "${params.Greeting} World!"
             }
+        }
+    }
+    post {
+        always {
+            junit '**/target/*.xml'
+        }
+        failure {
+            mail to: pragvis@gmail.com, subject: 'The Pipeline failed :('
         }
     }
 }
