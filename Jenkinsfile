@@ -2,7 +2,8 @@
 pipeline {
     agent any
     environment {
-        // EXAMPLE_KEY = credentials('example-credentials-id') // Secret value is 'sec%ret'
+        EXAMPLE_KEY = credentials('example-credentials-id') // Secret value is 'sec%ret'
+        EXAMPLE_KEY2 = credentials('example2-credentials-id')
     }
     parameters {
         string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say')
