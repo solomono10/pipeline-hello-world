@@ -32,7 +32,7 @@ pipeline {
                 // sh("echo ${STATEMENT}") is similar to sh('echo hello; ls /')
                 sh('echo ${STATEMENT}')
                 sh 'ls -la'
-                sh 'echo $SECRET_VALUE'
+                sh 'echo $EXAMPLE_KEY'
             }
         }
     }
