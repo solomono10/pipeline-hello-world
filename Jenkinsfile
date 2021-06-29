@@ -20,7 +20,7 @@ pipeline {
               }
             }
             steps {
-                sh 'make publish'
+                echo 'currentBuild.result'
             }
         }
     }
