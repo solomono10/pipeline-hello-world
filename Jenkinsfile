@@ -1,3 +1,4 @@
+
 pipeline {
     agent any 
     stages {
@@ -15,6 +16,16 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo 'Hello woman' 
+            }
+        }
+        stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
+            steps {
+                sh 'make publish'
             }
         }
     }
