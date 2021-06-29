@@ -33,6 +33,7 @@ pipeline {
                 sh('echo ${STATEMENT}')
                 sh 'ls -la'
                 sh 'echo $EXAMPLE_KEY'
+                sh "echo $EXAMPLE_KEY"
             }
         }
     }
