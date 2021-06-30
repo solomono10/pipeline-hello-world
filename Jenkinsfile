@@ -42,14 +42,14 @@ pipeline {
     }
     post {
         failure {
-            mail to: 'pragvis@gmail.com',
+            mail to: 'test@test.com',
             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
             body: "Something is wrong with ${env.BUILD_URL}"
         }
-        success {
-            mail to: 'pragvis@gmail.com',
-            subject: "succeeded Pipeline: ${currentBuild.fullDisplayName}",
-            body: "${env.BUILD_URL} succeeded"
-        }
+        // success {
+        //     mail to: 'test@test.com',
+        //     subject: "succeeded Pipeline: ${currentBuild.fullDisplayName}",
+        //     body: "${env.BUILD_URL} succeeded"
+        // }
     }
 }
