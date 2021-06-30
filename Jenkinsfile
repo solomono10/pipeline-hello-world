@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo "${currentBuild.result}"
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                // Different from sh("echo ${STATEMENT}")
+                // sh('echo ${STATEMENT}') is different from sh("echo ${STATEMENT}")
                 // sh("echo ${STATEMENT}") is similar to sh('echo hello; ls /')
                 sh('echo ${STATEMENT}')
                 sh 'ls -la'
